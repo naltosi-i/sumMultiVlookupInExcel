@@ -1,9 +1,11 @@
 import os
 from datetime import datetime
+from labList import labList
 
 now = datetime.now()
 str_now = f'{now:%Y-%m-%d_%H%M%S}'
 
+lab_list = labList()
 s = 'test'
 
 ''' 基本構文
