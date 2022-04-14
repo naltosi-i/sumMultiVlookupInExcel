@@ -1,11 +1,20 @@
 import os
 from datetime import datetime
-from labList import labList
+import labList
 
 now = datetime.now()
 str_now = f'{now:%Y-%m-%d_%H%M%S}'
 
-lab_list = labList()
+lab_list = labList.labList()
+# 自作モジュールの実行検証用
+path = 'list/lablist.txt'
+
+with open(path, mode='w', encoding='utf-8') as f:
+    for d in lab_list:
+        f.write('%s\n' % d)
+# 検証ここまで
+
+
 s = 'test'
 
 ''' 基本構文

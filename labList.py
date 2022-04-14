@@ -27,6 +27,7 @@ def labList():
         for d in lab_list:
             f.write('%s\n' % d)
     '''
+    return lab_list
 
 if __name__== '__main__':
     labList()
