@@ -1,17 +1,19 @@
 import os
 from datetime import datetime
-import labList
+import func
 
 now = datetime.now()
 str_now = f'{now:%Y-%m-%d_%H%M%S}'
 
-lab_list = labList.labList()
+lab_list = func.labList()
 # 自作モジュールの実行検証用
+'''
 path = 'list/lablist.txt'
 
 with open(path, mode='w', encoding='utf-8') as f:
     for d in lab_list:
         f.write('%s\n' % d)
+'''
 # 検証ここまで
 
 
@@ -33,32 +35,9 @@ search_end = '$' + 'V' # 検索範囲の末尾列
 area = sheet + search_start + ':' + search_end
 return_column = '16' # 戻り値列（検索範囲の開始列を1とする）
 
-s_list = []
+s = func.vLookupLine(start_cell, value, area, return_column)
 
-s_list.append('IF(ISNUMBER(')
-s_list.append(start_cell)
-
-# 以下で文字列の変換が必要か判定
-if value:
-    s_list.append(')*1, IFERROR(VLOOKUP(TEXT(')
-else:
-    s_list.append(')*1, IFERROR(VLOOKUP(')
-s_list.append(start_cell)
-if value:
-    s_list.append(', "@"),')
-else:
-    s_list.append(',')
-# 判定ここまで
-
-s_list.append(area)
-s_list.append(',')
-s_list.append(return_column)
-s_list.append(',FALSE), 0), 0)')
-s_list.append(' +\n')
-
-
-s = ''.join(s_list)
-
+s = '=' + s.rstrip(' +\n')
 
 log_path = 'log/' + str_now + '.txt'
 with open(log_path, mode='w', encoding='utf-8') as f: # output text file
