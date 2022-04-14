@@ -1,24 +1,32 @@
+def labList():
+    ab_list = []
+    dab_list = []
+    lab_list = []
 
-start_column = 'G'
-start_row = '10'
-columns = 10
-cnt = 0
+    for i in range(65,91):
+        ab_list.append(chr(i))
 
+    for j in range(26):
+        for k in range(26):
+            dab_list.append(ab_list[j] + ab_list[k])
 
-column_list = []
-ab_list = []
+    '''dab_listの中身チェック用
+    path = 'list/dablist.txt'
 
+    with open(path, mode='w', encoding='utf-8') as f:
+        for d in dab_list:
+            f.write('%s\n' % d)
+    '''
 
-for i in range(65,91):
-    ab_list.append(chr(i))
+    lab_list = ab_list + dab_list
 
-ab_cnt = 0
+    '''lab_listの中身チェック用
+    path = 'list/lablist.txt'
 
-while cnt < columns:
-    while ab_cnt < 26:
-        for i in ab_list:
-            column_list.append(ab_list[i])
-    cnt += 1
+    with open(path, mode='w', encoding='utf-8') as f:
+        for d in lab_list:
+            f.write('%s\n' % d)
+    '''
 
-
-print(column_list)
+if __name__== '__main__':
+    labList()
