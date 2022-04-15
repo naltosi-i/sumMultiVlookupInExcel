@@ -5,7 +5,7 @@ import func
 s = 'test'
 
 ''' 基本構文
-IF(ISNUMBER(開始セル)*1, IFERROR(VLOOKUP(TEXT(開始セル, "@"),検索範囲,戻り値列,FALSE), 0), 0) + …
+IF(ISNUMBER([開始セル])*1, IFERROR(VLOOKUP(TEXT([開始セル], "@"),[検索範囲],[戻り値列],FALSE), 0), 0) + …
 
 開始セルに数値が入っていた場合、検索範囲から、開始セルの値を検索し、戻り値列の値を返す。
 次に隣の列の数値を検索し、戻り値列の値を加える。
