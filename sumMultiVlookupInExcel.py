@@ -41,9 +41,9 @@ for i in range(columns):
     row = start_row
     k = lab_list.index(start_column) + i
     s = s + func.vLookupLine(lab_list[k], row, value, area, return_column) 
-    s = s + ' +\n'
+    s = s + '\n+'
 
-s = '=' + s.rstrip(' +\n')
+s = '=' + s.rstrip('\n+')
 
 log_path = 'log/' + str_now + '.txt'
 with open(log_path, mode='w', encoding='utf-8') as f: # output text file
