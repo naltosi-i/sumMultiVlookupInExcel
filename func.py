@@ -38,7 +38,7 @@ def labList():
     '''
     return lab_list
 
-def vLookupLine(start_cell, value, area, return_column):
+def vLookupLine(start_column, start_row, value, area, return_column):
     '''条件付きVLOOKUP関数の数式を作る
     
     基本構文
@@ -46,6 +46,7 @@ def vLookupLine(start_cell, value, area, return_column):
 
     開始セルに数値が入っていた場合、検索範囲から、開始セルの値を検索し、戻り値列の値を返す。
     '''
+    start_cell = start_column + start_row
     s_list = []
 
     s_list.append('IF(ISNUMBER(')

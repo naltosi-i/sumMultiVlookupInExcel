@@ -2,8 +2,6 @@ import os
 from datetime import datetime
 import func
 
-s = 'test'
-
 ''' 基本構文
 IF(ISNUMBER([開始セル])*1, IFERROR(VLOOKUP(TEXT([開始セル], "@"),[検索範囲],[戻り値列],FALSE), 0), 0) + …
 
@@ -37,10 +35,13 @@ with open(path, mode='w', encoding='utf-8') as f:
 '''
 # 検証ここまで
 
+s = ''
 
-s = func.vLookupLine(start_cell, value, area, return_column)
-
-s.append(' +\n')
+for i in range(columns):
+    row = start_row
+    k = lab_list.index(start_column) + i
+    s = s + func.vLookupLine(lab_list[k], row, value, area, return_column) 
+    s = s + ' +\n'
 
 s = '=' + s.rstrip(' +\n')
 
