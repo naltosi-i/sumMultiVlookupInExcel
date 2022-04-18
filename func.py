@@ -72,3 +72,6 @@ def vLookupLine(start_column, start_row, value, area, return_column):
     s = ''.join(s_list)
     
     return s
+
+if __name__ == '__main__':
+    labList()
